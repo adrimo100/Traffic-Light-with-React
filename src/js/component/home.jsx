@@ -36,7 +36,6 @@ const Home = () => {
 						setRedOpacity("25");
 						setYellowOpacity("25");
 						setGreenOpactity("100");
-						console.log("red was clicked");
 					}}>
 					<Light color={`success opacity-${greenOpacity}`} />
 				</div>
@@ -47,7 +46,6 @@ const Home = () => {
 					setRedOpacity("100");
 					setYellowOpacity("100");
 					setGreenOpactity("100");
-					console.log("red was clicked");
 				}}>
 				Turn On All Lights!!
 			</button>
@@ -57,7 +55,6 @@ const Home = () => {
 					setRedOpacity("25");
 					setYellowOpacity("25");
 					setGreenOpactity("25");
-					console.log("red was clicked");
 				}}>
 				Switch Off Lights!!
 			</button>
