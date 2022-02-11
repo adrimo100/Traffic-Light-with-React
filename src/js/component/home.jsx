@@ -11,7 +11,7 @@ const Home = () => {
 	const [greenOpacity, setGreenOpactity] = useState("25");
 
 	return (
-		<div className="d-flex justify-content-center align-items-center">
+		<div className="text-center">
 			<div
 				className="container bg-dark mt-5 py-3 px-5"
 				style={{ width: "250px", height: "500px" }}>
@@ -20,7 +20,6 @@ const Home = () => {
 						setRedOpacity("100");
 						setYellowOpacity("25");
 						setGreenOpactity("25");
-						console.log("red was clicked");
 					}}>
 					<Light color={`danger opacity-${redOpacity}`} />
 				</div>
@@ -29,11 +28,10 @@ const Home = () => {
 						setRedOpacity("25");
 						setYellowOpacity("100");
 						setGreenOpactity("25");
-						console.log("red was clicked");
 					}}>
 					<Light color={`warning opacity-${yellowOpacity}`} />
 				</div>
-				<div //Gree Light
+				<div //Green Light
 					onClick={() => {
 						setRedOpacity("25");
 						setYellowOpacity("25");
@@ -43,6 +41,26 @@ const Home = () => {
 					<Light color={`success opacity-${greenOpacity}`} />
 				</div>
 			</div>
+			<button
+				className="btn btn-dark m-4"
+				onClick={() => {
+					setRedOpacity("100");
+					setYellowOpacity("100");
+					setGreenOpactity("100");
+					console.log("red was clicked");
+				}}>
+				Turn On All Lights!!
+			</button>
+			<button
+				className="btn btn-dark m-4"
+				onClick={() => {
+					setRedOpacity("25");
+					setYellowOpacity("25");
+					setGreenOpactity("25");
+					console.log("red was clicked");
+				}}>
+				Switch Off Lights!!
+			</button>
 		</div>
 	);
 };
