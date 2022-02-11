@@ -13,7 +13,7 @@ const Home = () => {
 	return (
 		<div className="text-center">
 			<div
-				className="container bg-dark mt-5 py-3 px-5"
+				className="container bg-dark mt-5 py-3 px-5 rounded-pill"
 				style={{ width: "250px", height: "500px" }}>
 				<div //Red Light
 					onClick={() => {
