@@ -10,6 +10,7 @@ const Button = (props) => {
 				props.setRedOpacity(props.redValue);
 				props.setYellowOpacity(props.yellowValue);
 				props.setGreenOpacity(props.greenValue);
+				props.setStatus(props.statusValue);
 			}}>
 			<Light color={`${props.style} opacity-${props.opacity}`} />
 		</div>
@@ -25,6 +26,8 @@ Button.propTypes = {
 	yellowValue: PropTypes.string,
 	greenValue: PropTypes.string,
 	opacity: PropTypes.string,
+	setStatus: PropTypes.func,
+	statusValue: PropTypes.bool,
 };
 
 export default Button;

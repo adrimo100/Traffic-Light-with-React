@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 //include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
-import Light from "./lightbulb.jsx";
 import Button from "./button.jsx";
+
+let yellowAux = "25";
 
 //create your first component
 const Home = () => {
@@ -12,6 +12,22 @@ const Home = () => {
 	const [greenOpacity, setGreenOpacity] = useState("25");
 
 	const [status, setStatus] = useState(false);
+	const [intervalID, setIntervalID] = useState(0);
+
+	useEffect(() => {
+		if (status) {
+			setYellowOpacity("25");
+			setIntervalID(
+				setInterval(() => {
+					yellowAux = yellowAux == "100" ? "25" : "100";
+
+					setYellowOpacity(yellowAux);
+				}, 1000)
+			);
+		} else {
+			clearInterval(intervalID);
+		}
+	}, [status]);
 
 	return (
 		<div className="text-center">
@@ -24,6 +40,8 @@ const Home = () => {
 					setRedOpacity={setRedOpacity}
 					setYellowOpacity={setYellowOpacity}
 					setGreenOpacity={setGreenOpacity}
+					setStatus={setStatus}
+					statusValue={false}
 					redValue="100"
 					yellowValue="25"
 					greenValue="25"
@@ -34,6 +52,8 @@ const Home = () => {
 					setRedOpacity={setRedOpacity}
 					setYellowOpacity={setYellowOpacity}
 					setGreenOpacity={setGreenOpacity}
+					setStatus={setStatus}
+					statusValue={false}
 					redValue="25"
 					yellowValue="100"
 					greenValue="25"
@@ -44,6 +64,8 @@ const Home = () => {
 					setRedOpacity={setRedOpacity}
 					setYellowOpacity={setYellowOpacity}
 					setGreenOpacity={setGreenOpacity}
+					setStatus={setStatus}
+					statusValue={false}
 					redValue="25"
 					yellowValue="25"
 					greenValue="100"
@@ -52,15 +74,18 @@ const Home = () => {
 			<button
 				className="btn btn-dark m-4"
 				onClick={() => {
+					setStatus(false);
 					setRedOpacity("100");
 					setYellowOpacity("100");
 					setGreenOpacity("100");
+					setStatus(false);
 				}}>
 				Turn On All Lights!!
 			</button>
 			<button
 				className="btn btn-dark m-4"
 				onClick={() => {
+					setStatus(true);
 					setRedOpacity("25");
 					setGreenOpacity("25");
 				}}>
@@ -69,6 +94,7 @@ const Home = () => {
 			<button
 				className="btn btn-dark m-4"
 				onClick={() => {
+					setStatus(false);
 					setRedOpacity("25");
 					setYellowOpacity("25");
 					setGreenOpacity("25");
